@@ -22,26 +22,24 @@ export default function profile() {
   }, []);
 
   return (
-    <div style={{marginTop:"180px" , borderBlockColor:"black"}}>
-        
+    <div style={{ marginTop: "180px", borderBlockColor: "black" }}>
       <Center>
         <Avatar src={user?.avatar} size={250} radius="50%" />
       </Center>
       <Center mt="sm" style={{ flexDirection: "column" }}>
-        <Text color="black" size="lg" style={{padding:"10px"}}>
-        Name:  {user?.name}
+        <Text color="black" size="lg" style={{ padding: "10px" }}>
+          Name: {user?.name}
         </Text>
-        <Text color="black" size="lg" style={{padding:"10px"}}>
-        Email: {user?.email}
+        <Text color="black" size="lg" style={{ padding: "10px" }}>
+          Email: {user?.email}
         </Text>
-        <Text color="black" size="lg" style={{padding:"10px"}}>
-         CreatedAt: {user?.createdAt}
+        <Text color="black" size="lg" style={{ padding: "10px" }}>
+          CreatedAt: {user?.createdAt}
         </Text>
-        <Text color="black" size="lg" style={{padding:"10px"}} >
-         Role: {user?.role}
+        <Text color="black" size="lg" style={{ padding: "10px" }}>
+          Role: {user?.role}
         </Text>
       </Center>
-      
     </div>
   );
 }
