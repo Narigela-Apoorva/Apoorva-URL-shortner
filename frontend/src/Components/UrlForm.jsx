@@ -7,7 +7,7 @@ import { useState } from 'react';
 const obj = new Service();
 
 
-export default function UrlForm() {
+export default function UrlForm(props) {
     const generateShortUrl = async(data) => {
        try {
            let response = await obj.post("s", data);

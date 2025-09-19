@@ -22,6 +22,7 @@ const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/profile', label: 'Profile' },
   { to: '/url/shortner', label: 'UrlShortner' },
+  { to: '/myurl', label: 'MyUrl' },
 
 ];
 
