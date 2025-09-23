@@ -3,7 +3,7 @@ import UrlForm from "../Components/UrlForm";
 import UrlResponse from "../Components/UrlResponse";
 import { useState } from "react";
 
-export default function UrlShortener() {
+export default function UrlShortner() {
   const [response, setResponse] = useState(null);
 
   return (
