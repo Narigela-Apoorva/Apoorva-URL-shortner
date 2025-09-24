@@ -16,7 +16,7 @@ import {
   getIsLoggedIn,
   removeUser,
 } from '../../redux/slices/User';
-import classes from './HeaderMegaMenu.module.scss';
+import classes from './HeaderMegaMenu.module.css';
 
 const navLinks = [
   { to: '/', label: 'Home' },
