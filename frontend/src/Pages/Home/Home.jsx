@@ -53,7 +53,7 @@ const Home = () => {
               marginTop: "1rem",
             }}
           >
-            Url Shortener
+           Apoorva Url Shortener
           </Title>
 
           <Text
