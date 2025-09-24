@@ -1,51 +1,52 @@
-import { Button, Container, Text } from "@mantine/core";
-import Service from "../utils/http";
-import { QRCodeSVG } from "qrcode.react";
-import { TextInput } from "@mantine/core";
-import { ActionIcon, CopyButton, Tooltip } from '@mantine/core';
-import { IconCopy, IconCheck } from '@tabler/icons-react';
+import { Text, TextInput, Tooltip, Container, Group, ActionIcon, Button } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
+import { IconCheck, IconCopy } from '@tabler/icons-react';
+import { QRCodeSVG } from "qrcode.react";
+import Service from '../utils/http';
 
 const obj = new Service();
 
 export default function UrlResponse(props) {
-  const surl = obj.getBaseURL() + "/api/s/" + props?.response?.shortCode;
-  const clipboard = useClipboard({ timeout: 500 });
-  return (
-    <div>
-      <Container style={{ marginTop: "20%" }}>
-        <TextInput mb='10%'
-          leftSectionPointerEvents="none"
-          label="Shorter URL"
-          //placeholder="Enter short URL"
-          value={surl}
-          onChange={(e) => setSurl(e.target.value)}
-          rightSection={<IconCopy
-           onClick={()=>{
-               console.log("clicked");
-               clipboard.copy(surl)
-           }}
-           />}
-        />
+  const clipboard = useClipboard({ timeout: 2000 });
+  const surl = obj.getBaseURL() + '/api/s/' + props?.response?.shortCode;
 
-        {/* <Text color="blue"> {surl} </Text> */}
-        <QRCodeSVG
-          imageSettings={{
-            excavate: true,
-            src: "/HomeBackground.png",
-            height: 100,
-            width: 100,
-          }}
-          value={surl}
-          size={400}
+  return (
+    <Container>
+      {/* URL + Copy icon side by side */}
+      <Group gap="xs">
+        <Text color="blue" fw={500} size="lg">
+          {surl}
+        </Text>
+        <Tooltip
+          label="Link copied!"
+          offset={5}
+          position="bottom"
+          radius="xl"
+          transitionProps={{ duration: 100, transition: 'slide-down' }}
+          opened={clipboard.copied}
         >
-          <Image src={"/HomeBackground.png"} />
-        </QRCodeSVG>
-      <Button  mx='40%' my='10%'onClick={()=>{
+          <ActionIcon
+            variant="subtle"
+            color={clipboard.copied ? "teal" : "gray"}
+            onClick={() => clipboard.copy(surl)}
+          >
+            {clipboard.copied ? (
+              <IconCheck size={20} stroke={1.5} />
+            ) : (
+              <IconCopy size={20} stroke={1.5} />
+            )}
+          </ActionIcon>
+        </Tooltip>
+      </Group>
+
+      {/* QR code below */}
+      <QRCodeSVG
+        value={surl}
+        size={400}
+      />
+      <Button onClick={()=>{
                props.setResponse(null)
             }}> Reset </Button>
-      </Container>
-
-    </div>
+    </Container>
   );
 }
