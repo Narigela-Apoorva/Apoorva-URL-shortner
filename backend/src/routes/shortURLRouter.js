@@ -1,12 +1,13 @@
 import { Router } from "express";
-import { createShortUrl, getLongUrl } from "../controllers/shortUrlController.js";
+// import { createShortURL, createShortUrl, getLongUrl } from "../controllers/shortUrlController.js";
 import { isLoggedIn } from "../middlewares/authMiddleware.js";
+import { createShortURL, getLongUrl } from "../controllers/shortUrlController.js";
 
 
 const shortURLRouter = Router();
 
 
-shortURLRouter.post("/", isLoggedIn, createShortUrl)
+shortURLRouter.post("/", isLoggedIn, createShortURL)
 
 
 // redirect router "/api/s/shortCode"
