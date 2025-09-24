@@ -1,10 +1,11 @@
-import { Text, TextInput, Tooltip, Container, Group, ActionIcon, Button } from '@mantine/core';
+import { Text, Tooltip, Container, Group, ActionIcon, Button } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
 import { QRCodeSVG } from "qrcode.react";
 import Service from '../utils/http';
 
-const obj = new Service();
+
+const obj = new Service;
 
 export default function UrlResponse(props) {
   const clipboard = useClipboard({ timeout: 2000 });
