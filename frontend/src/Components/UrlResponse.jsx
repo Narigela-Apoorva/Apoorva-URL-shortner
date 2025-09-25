@@ -3,7 +3,7 @@ import { useClipboard } from '@mantine/hooks';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
 import { QRCodeSVG } from "qrcode.react";
 import Service from '../utils/http';
-
+import { TextInput } from '@mantine/core';
 
 const obj = new Service;
 
@@ -15,9 +15,9 @@ export default function UrlResponse(props) {
     <Container>
       {/* URL + Copy icon side by side */}
       <Group gap="xs">
-        <Text color="blue" fw={500} size="lg">
+        <TextInput color="blue" fw={500} size="lg">
           {surl}
-        </Text>
+        </TextInput>
         <Tooltip
           label="Link copied!"
           offset={5}
@@ -45,7 +45,7 @@ export default function UrlResponse(props) {
         value={surl}
         size={400}
       />
-      <Button onClick={()=>{
+      <Button style={{mx:"40%"}} onClick={()=>{
                props.setResponse(null)
             }}> Reset </Button>
     </Container>
